@@ -1,8 +1,3 @@
-# Network
-Network Research 2023 Summer
+# MSGI Study Notebook
 
-I wanna try git!
-
-This is a modification online!
-
-This is one more modification on BRCC!
+This repository contains my study note during 2023 summer, on network robustness.
