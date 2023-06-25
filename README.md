@@ -1,3 +1,3 @@
-# MSGI Study Notebook
+# MSGI Study Notebook at Oak Ridge National Lab
 
 This repository contains my study notes during 2023 summer, on network robustness.
