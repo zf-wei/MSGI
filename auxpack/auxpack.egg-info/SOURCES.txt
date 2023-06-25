@@ -1,0 +1,10 @@
+setup.py
+auxpack/__init__.py
+auxpack/evaluate_clustering.py
+auxpack/evaluate_embedding.py
+auxpack/geometry.py
+auxpack/lle.py
+auxpack.egg-info/PKG-INFO
+auxpack.egg-info/SOURCES.txt
+auxpack.egg-info/dependency_links.txt
+auxpack.egg-info/top_level.txt
