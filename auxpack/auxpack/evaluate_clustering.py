@@ -6,9 +6,9 @@
 from sklearn.metrics import normalized_mutual_info_score
 def NMI(clus1, clus2): # NMI函数可以接受的参数类型可以是 dic 或者 list
     if isinstance(clus1, dict):
-        clus1 = list(clus1)
+        clus1 = list(clus1.values())
     if isinstance(clus2, dict):
-        clus2 = list(clus2)     
+        clus2 = list(clus2.values())     
     return normalized_mutual_info_score(clus1, clus2)
 
 
