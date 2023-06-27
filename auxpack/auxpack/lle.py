@@ -6,8 +6,14 @@ import networkx as nx
 from sklearn.preprocessing import normalize
 import scipy.linalg as lg
 
+
+### UNDER CONSTRUCTION!!!
+### This function needs to be adjusted to deal with unconnected graphs!!!
+### UNDER CONSTRUCTION!!!
+
 def lle(graph, dim):
-    A = nx.to_numpy_array(graph, nodelist=sorted(graph.nodes()), weight='weight')
+    #A = nx.to_numpy_array(graph, nodelist=sorted(graph.nodes()), weight='weight')
+    A = nx.to_numpy_array(graph, nodelist=graph.nodes(), weight='weight')
     normalize(A, norm='l1', axis=1, copy=False)
     I_n = np.eye(graph.number_of_nodes())
     I_min_A = np.dot((I_n - A).T, (I_n - A))
