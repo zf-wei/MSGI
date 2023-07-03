@@ -13,28 +13,23 @@ def NMI(clus1, clus2): # NMI函数可以接受的参数类型可以是 dic 或�
 
 
 
-
-
 ## 计算 ECSim 的函数
 
-# 这个函数将 list 或者 dict 类型的聚类结果进行类型转换
 from clusim.clustering import Clustering
+from clusim.sim import element_sim
+
 
 def to_clus(input):
-    if isinstance(input, list):
-        elm2clu_dict = {i: [input[i]] for i in range(len(input))}
+    if isinstance(input, Clustering):
+        return input
     elif isinstance(input, dict):
-        elm2clu_dict = {i: [input[i]] for i in input.keys()}
+        return Clustering({i: [input[i]] for i in input.keys()})
+    elif isinstance(input, list):
+        return Clustering({i: [input[i]] for i in range(len(input))})
     else:
-        raise ValueError("Input must be a list or a dictionary.")
+        raise ValueError("Input must be a dictionary, an np.array, or a list.")
 
-    return Clustering(elm2clu_dict)
-
-
-import clusim.sim as sim
-def ECSim(clus1, clus2): #ECsim函数可以接受的参数类型可以是 dic, list, 或者 Clustering
-    if not isinstance(clus1, Clustering):
-        clus1 = to_clus(clus1)
-    if not isinstance(clus2, Clustering):
-        clus2 = to_clus(clus2)     
-    return sim.element_sim(clus1, clus2, alpha=0.9)
+def ECSim(clus1, clus2):
+    clus1 = to_clus(clus1)
+    clus2 = to_clus(clus2)
+    return element_sim(clus1, clus2, alpha=0.9)
