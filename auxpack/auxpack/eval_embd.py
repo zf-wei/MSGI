@@ -8,24 +8,30 @@ from sklearn.metrics import normalized_mutual_info_score
 import clusim.sim as sim
 from clusim.clustering import Clustering
 
+
+def euclid_membership(K, points):
+    euc_kmeans = KMeans(n_clusters=K, n_init=10)
+    euc_kmeans.fit(points)
+
+    evala_euclid_membership = euc_kmeans.labels_
+    return evala_euclid_membership
+
+def cosine_membership(K, points):
+    normalized_points = normalize(points)
+    cos_kmeans = KMeans(n_clusters=K, n_init=10)
+    cos_kmeans.fit(normalized_points)
+
+    evala_cosine_membership = cos_kmeans.labels_
+    return evala_cosine_membership
+
 def eval_embd(K, intr_list, intr_clus, evala): 
 # 输入参数 的两个 intr 为内蕴聚类
 # eval 的类型为向量 表示嵌入向量
     return_val = [] # 首先准备好返回值 
-    ## 首先做 K Mean
 
-    points = evala
-    normalized_points = normalize(evala)
+    evala_euclid_membership = euclid_membership(K, evala)
 
-    euc_kmeans = KMeans(n_clusters=K, n_init=10)
-    euc_kmeans.fit(points)
-
-    cos_kmeans = KMeans(n_clusters=K, n_init=10)
-    cos_kmeans.fit(normalized_points)
-
-    evala_euclid_membership = euc_kmeans.labels_
-    evala_cosine_membership = cos_kmeans.labels_
-    
+    evala_cosine_membership = cosine_membership(K, evala)
 
     ## 然后开始与内蕴聚类进行比较
     return_val.append(normalized_mutual_info_score(evala_euclid_membership, intr_list))

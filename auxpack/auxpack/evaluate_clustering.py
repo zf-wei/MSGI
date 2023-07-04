@@ -17,6 +17,7 @@ def NMI(clus1, clus2): # NMI函数可以接受的参数类型可以是 dic 或�
 
 from clusim.clustering import Clustering
 from clusim.sim import element_sim
+import numpy as np
 
 
 def to_clus(input):
@@ -24,10 +25,10 @@ def to_clus(input):
         return input
     elif isinstance(input, dict):
         return Clustering({i: [input[i]] for i in input.keys()})
-    elif isinstance(input, list):
+    elif isinstance(input, list) or isinstance(input, np.ndarray):
         return Clustering({i: [input[i]] for i in range(len(input))})
     else:
-        raise ValueError("Input must be a dictionary, an np.array, or a list.")
+        raise ValueError("Input must be a dictionary, a listan, or an np.array.")
 
 def ECSim(clus1, clus2):
     clus1 = to_clus(clus1)
