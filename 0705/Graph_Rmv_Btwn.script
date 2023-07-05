@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#SBATCH --job-name=Graph_Rmv_Btwn          # Job name
+#SBATCH --partition=gpu          # Partition (queue) name
+#SBATCH --output=filename_%j.txt     # Output file for stdout
+#SBATCH --error=filename_%j.err      # Output file for stderr
+#SBATCH --mail-type=ALL              # Email notification for job events
+#SBATCH --mail-user=zfwei@iu.edu     # Email address to receive notifications
+#SBATCH --nodes=1                    # Number of nodes
+#SBATCH --ntasks-per-node=1          # Number of tasks per node
+#SBATCH --cpus-per-task=32
+#SBATCH --gpus-per-node=2
+#SBATCH --time=4:30:00             # Wall clock time limit
+#SBATCH --mem=128G                    # Memory limit per node
+#SBATCH -A r00165             # Account (project) allocation
+
+# Load any required modules
+module load cudatoolkit
+module load git
+module load python/gpu
+
+# Activate a virtual environment if needed
+
+# Run your program
+srun python Graph_Rmv_Btwn.py

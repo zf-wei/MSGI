@@ -34,8 +34,8 @@ def eval_embd(K, intr_list, intr_clus, evala):
     evala_cosine_membership = cosine_membership(K, evala)
 
     ## 然后开始与内蕴聚类进行比较
-    return_val.append(normalized_mutual_info_score(evala_euclid_membership, intr_list))
-    return_val.append(normalized_mutual_info_score(evala_cosine_membership, intr_list))
+    return_val.append(normalized_mutual_info_score(evala_euclid_membership, intr_list, average_method='arithmetic'))
+    return_val.append(normalized_mutual_info_score(evala_cosine_membership, intr_list, average_method='arithmetic'))
     
     
     evala_euclid_clustering = Clustering(elm2clu_dict={i: [evala_euclid_membership[i]] for i in range(len(evala_euclid_membership))})
