@@ -23,7 +23,7 @@ selfloop_edges = list(nx.selfloop_edges(G0)) # a list of self loops
 
 G0.remove_edges_from(selfloop_edges) # Remove self-loops
 
-#############################################
+#################################################
 
 import numpy as np
 intrinsic_communities = {frozenset(G0.nodes[v]["community"]) for v in G0}
@@ -34,7 +34,7 @@ for node in range(G0.number_of_nodes()):
             intrinsic_membership[node] = index
             break
 
-#############################################
+#################################################
 
 import os
 from datetime import date
@@ -54,7 +54,7 @@ def generate_output(disturb: bool, filename):
     
     return file_path
 
-#############################################
+#################################################
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -92,7 +92,7 @@ def quar_plot(scores, disturb: bool, filename, win:10):
     # Show the plot
     plt.show()
 
-#############################################
+#################################################
 
 import os
 import csv
@@ -114,12 +114,14 @@ def save_scores_to_csv(scores, disturb: bool, filename):
         for score_list in scores:
             writer.writerow(score_list)
 
-#############################################
+#################################################
 
-betweenness = nx.betweenness_centrality(G0)
-temp = sorted(betweenness, key=betweenness.get, reverse=True)
+import random
 
-#############################################
+temp = list(range(G0.number_of_nodes()))
+random.shuffle(temp)
+
+#################################################
 
 from auxpack.eval_embd import eval_embd as EE
 from clusim.clustering import Clustering
@@ -127,9 +129,10 @@ from clusim.clustering import Clustering
 D=20
 K = len(np.unique(intrinsic_membership))
 wk=48
+#Measure = []
+#remain_nodes = np.array(range(G.number_of_nodes()))
 
-
-#############################################
+#################################################
 
 ### 1 Hope 方法
 from gem.embedding.hope import HOPE  
@@ -158,11 +161,10 @@ for i in temp:
     scores.append(score)
     print("NMI&ECS:", score)
     
-quar_plot(scores=scores, disturb=False, filename="1HOPE", win=10)
-save_scores_to_csv(scores, False, "1HOPE")
+quar_plot(scores=scores, disturb=True, filename="1HOPE", win=10)
+save_scores_to_csv(scores, True, "1HOPE")
 
-
-#############################################
+#################################################
 
 ### 2 Laplacian 方法
 from gem.embedding.lap import LaplacianEigenmaps
@@ -190,10 +192,10 @@ for i in temp:
     scores.append(score)
     print("NMI&ECS:", score)
     
-quar_plot(scores=scores, disturb=False, filename="2LAP", win=10)
-save_scores_to_csv(scores, False, "2LAP")
+quar_plot(scores=scores, disturb=True, filename="2LAP", win=10)
+save_scores_to_csv(scores, True, "2LAP")
 
-#############################################
+#################################################
 
 ### 3 LLE 方法
 from auxpack.lle import lle
@@ -220,10 +222,10 @@ for i in temp:
     scores.append(score)
     print("NMI&ECS:", score)
     
-quar_plot(scores=scores, disturb=False, filename="3LLE", win=10)
-save_scores_to_csv(scores, False, "3LLE")
+quar_plot(scores=scores, disturb=True, filename="3LLE", win=10)
+save_scores_to_csv(scores, True, "3LLE")
 
-#############################################
+#################################################
 
 ### 4 DeepWalk方法
 from auxpack.DeepWalk import DeepWalk
@@ -252,10 +254,10 @@ for i in temp:
     scores.append(score)
     print("NMI&ECS:", score)
     
-quar_plot(scores=scores, disturb=False, filename="4DeepWalk", win=10)
-save_scores_to_csv(scores, False, "4DeepWalk")
+quar_plot(scores=scores, disturb=True, filename="4DeepWalk", win=10)
+save_scores_to_csv(scores, True, "4DeepWalk")
 
-#############################################
+#################################################
 
 ### 5 MNMF 方法
 from karateclub import MNMF
@@ -291,10 +293,10 @@ for i in temp:
     scores.append(score)
     print("NMI&ECS:", score)
     
-quar_plot(scores=scores, disturb=False, filename="5MNMF", win=10)
-save_scores_to_csv(scores, False, "5MNMF")
+quar_plot(scores=scores, disturb=True, filename="5MNMF", win=10)
+save_scores_to_csv(scores, True, "5MNMF")
 
-#############################################
+#################################################
 
 ### 6 LINE 方法
 from ge import LINE
@@ -324,10 +326,10 @@ for i in temp:
     scores.append(score)
     print("NMI&ECS:", score)
     
-quar_plot(scores=scores, disturb=False, filename="6LINE", win=10)
-save_scores_to_csv(scores, False, "6LINE")
+quar_plot(scores=scores, disturb=True, filename="6LINE", win=10)
+save_scores_to_csv(scores, True, "6LINE")
 
-#############################################
+#################################################
 
 ### 7 Node2Vec 方法 以后使用这个
 from node2vec import Node2Vec
@@ -364,5 +366,7 @@ for i in temp:
     scores.append(score)
     print("NMI&ECS:", score)
     
-quar_plot(scores=scores, disturb=False, filename="7Node2Vec", win=10)
-save_scores_to_csv(scores, False, "7Node2Vec")
+quar_plot(scores=scores, disturb=True, filename="7Node2Vec", win=10)
+save_scores_to_csv(scores, True, "7Node2Vec")
+
+#################################################
