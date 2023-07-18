@@ -1,0 +1,13 @@
+setup.py
+WGE/DeepWalk.py
+WGE/__init__.py
+WGE/eval_embd.py
+WGE/extract_membership.py
+WGE/lle.py
+WGE/plots.py
+WGE/remove_procedure.py
+WGE/utils.py
+WGE.egg-info/PKG-INFO
+WGE.egg-info/SOURCES.txt
+WGE.egg-info/dependency_links.txt
+WGE.egg-info/top_level.txt
