@@ -7,9 +7,9 @@ def generate_output(random_disturb: bool, filename):
     # Generate the folder name with the current date
     now = datetime.now()
     if random_disturb:
-        folder_name = f"{slurm_job_id}_Graph_Rmv_Stoch_{now.strftime('%Y-%m-%d-%H-%M')}"
+        folder_name = f"{slurm_job_id}_Stoch_{now.strftime('%Y-%m-%d-%H')}"#-%H-%M
     else:
-        folder_name = f"{slurm_job_id}_Graph_Rmv_Btwn_{now.strftime('%Y-%m-%d-%H-%M')}"
+        folder_name = f"{slurm_job_id}Btwn_{now.strftime('%Y-%m-%d-%H')}"
 
     # Create the output directory if it doesn't exist
     output_dir = os.path.join(os.getcwd(), folder_name)

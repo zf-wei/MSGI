@@ -36,7 +36,10 @@ def generate_remove_procedure(random_disturb: bool, mu, graph, number_of_nodes, 
                 print(i)
                 ls.append(temp)
         remove_procedure.append(ls)
-    filename = f"graph_{graph.number_of_nodes()}_{mu}.rmvproc"
+    if random_disturb:
+        filename = f"graph_{graph.number_of_nodes()}_{mu}.stoch_rmv"
+    else:
+        filename = f"graph_{graph.number_of_nodes()}_{mu}.btwn_rmv"
     with open(filename, 'w') as file:
         json.dump(remove_procedure, file)
         
