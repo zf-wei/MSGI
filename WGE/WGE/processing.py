@@ -12,6 +12,8 @@ from clusim.clustering import Clustering
 from WGE.utils import save_scores_to_csv
 from WGE.utils import save_to_csv
 
+from WGE.eval_embd import eval_embd as EE
+
 def perform_hope_embedding(graph, nodes_to_remove, embedding_dimension, _, __, ___):
     graph_copy = graph.copy()
     graph_copy.remove_nodes_from(nodes_to_remove)
@@ -35,7 +37,7 @@ def perform_lle_embedding(graph, nodes_to_remove, embedding_dimension, _, __, __
 def perform_deepwalk_embedding(graph, nodes_to_remove, embedding_dimension, _, __, wk=32):
     graph_copy = graph.copy()
     graph_copy.remove_nodes_from(nodes_to_remove)
-    model = DeepWalk(dimensions=embedding_dimension, walk_length=16, window_size=10, walk_number=10, workers=wk)
+    model = DeepWalk(dimensions=embedding_dimension, walk_length=40, window_size=10, walk_number=80, workers=wk)
     model.fit(graph_copy)
     embd = model.get_embedding()
     return embd
@@ -70,7 +72,7 @@ def perform_node2vec_embedding(graph, nodes_to_remove, embedding_dimension,_, id
     embd = np.array([node2vec_fit.wv[node] for node in nodes])
     return embd
 
-from WGE.eval_embd import eval_embd as EE
+
 def calculate_score(embd, intrinsic_membership, number_of_intrinsic_clusters):
     intrin_list = intrinsic_membership
     intrin_Clus = Clustering({i: [intrin_list[i]] for i in range(len(intrin_list))})

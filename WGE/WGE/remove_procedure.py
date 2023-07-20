@@ -1,8 +1,3 @@
-#from auxpack.utils import generate_output
-#################################
-#调用 generate_output 函数
-#################################
-
 ### 生成删除顶点的顺序 模块
 import random
 import networkx as nx
@@ -26,14 +21,14 @@ import json
 
 def generate_remove_procedure(random_disturb: bool, mu, graph, number_of_nodes, betweenness, sample_count=50):
     remove_procedure = []
-    i=0 
+    #i=0 
     for percent in np.arange(0.05, 0.86, 0.05):
         ls = []
         while len(ls) < sample_count:
             temp = nodes_sample(random_disturb=random_disturb, graph=graph, number_of_nodes=number_of_nodes, percent=percent, betweenness=betweenness)
             if temp is not None:
-                i=i+1
-                print(i)
+                #i=i+1
+                #print(i)
                 ls.append(temp)
         remove_procedure.append(ls)
     if random_disturb:
@@ -44,14 +39,12 @@ def generate_remove_procedure(random_disturb: bool, mu, graph, number_of_nodes, 
         json.dump(remove_procedure, file)
         
 
-#import numpy as np
-
 def remove_procedure_index(remove_procedure, num_nodes):
     index = []
     for sublist_list in remove_procedure:
         sublist_index = []
         for sublist in sublist_list:
-            temp = np.ones(num_nodes, dtype=bool)
+            temp = np.full(num_nodes, True)
             temp[sublist] = False
             sublist_index.append(temp)
         index.append(sublist_index)

@@ -29,11 +29,6 @@ num_cpus = multiprocessing.cpu_count()
 
 MU = [0.015, 0.1, 0.2, 0.3, 0.4, 0.5]
 
-graphs = {}
-membership = {}
-between = {}
-remove_procedure = {}
-index = {}
 
 graphs, membership, between, remove_procedure, index = graph_input(N=N, MU=MU, random_disturb=random_disturb)
 
@@ -46,6 +41,8 @@ for mu in MU:
 
 measurements = ["NMI", "NMI", "ECSim", "ECSim"]
 tokens = ["Euclidean", "Spherical", "Euclidean", "Spherical"]
+
+labels = ["1HOPE", "2LAP", "3LLE", "4DeepWalk", "5MNMF", "6LINE", "7Node2Vec"]
 
 for tok in range(4):
     MEAN_Organized = []
@@ -61,5 +58,10 @@ for tok in range(4):
     measurement = measurements[tok]
     token = tokens[tok]
 
+    if random_disturb:
+        filename = f"Stoch_{N}_{D}-dim_{labels[method-1]}_{token}_{measurement}"
+    else:
+        filename = f"Btwn_{N}_{D}-dim_{labels[method-1]}_{token}_{measurement}"
+        
     Plot_Total(output=output_flag, random_disturb=random_disturb, measurement=measurement, 
-               title=f"{D}-dimension, {token}", MEAN=MEAN_Organized, STD=STD_Organized, filename=f"{N}_{D}-dim_{token}_{measurement}")
+               title=f"{D}-dimension, {token}", MEAN=MEAN_Organized, STD=STD_Organized, filename=filename)
