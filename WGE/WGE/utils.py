@@ -18,8 +18,10 @@ def generate_output(random_disturb: bool, filename):
     now = datetime.now()
     if random_disturb:
         folder_name = f"{slurm_job_id}_Stoch_{now.strftime('%Y-%m-%d')}"#-%H-%M
+        filename = "Stoch_"+filename
     else:
-        folder_name = f"{slurm_job_id}Btwn_{now.strftime('%Y-%m-%d')}"
+        folder_name = f"{slurm_job_id}_Btwn_{now.strftime('%Y-%m-%d')}"
+        filename = "Btwn_"+filename
 
     # Create the output directory if it doesn't exist
     output_dir = os.path.join(os.getcwd(), folder_name)
