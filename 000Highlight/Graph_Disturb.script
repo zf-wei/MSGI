@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=Graph_Disturb          # Job name
-#SBATCH --partition=debug         # Partition (queue) name
+#SBATCH --partition=general        # Partition (queue) name
 #SBATCH --output=filename_%j.txt     # Output file for stdout
 #SBATCH --error=filename_%j.err      # Output file for stderr
 #SBATCH --mail-type=ALL              # Email notification for job events
@@ -9,7 +9,7 @@
 #SBATCH --nodes=1                    # Number of nodes
 #SBATCH --ntasks-per-node=1          # Number of tasks per node
 #SBATCH --cpus-per-task=48
-#SBATCH --time=4:00:00             # Wall clock time limit
+#SBATCH --time=24:00:00             # Wall clock time limit
 #SBATCH --mem=50G                    # Memory limit per node
 #SBATCH -A r00165             # Account (project) allocation
 
@@ -20,4 +20,4 @@ module load python/gpu
 # Activate a virtual environment if needed
 
 # Run your program
-srun python Graph_Disturb.py -N 1000 -D 16 -M 2 -r true
+srun python Graph_Disturb.py -N 1000 -D 16 -M 4 -r true
