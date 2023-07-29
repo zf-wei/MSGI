@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/000Highlight/Graph_Disturb.py", line 40, in <module>
+    MEAN[mu], STD[mu] = Comprehensive_Processing(output=output_flag, random_disturb=random_disturb, method=method, num_cpus=num_cpus, 
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/processing.py", line 102, in Comprehensive_Processing
+    embd = embedding_func(graph, [], embedding_dimension, number_of_intrinsic_clusters, idxx, num_cpus)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/processing.py", line 48, in perform_mnmf_embedding
+    H = nx.relabel.convert_node_labels_to_integers(graph_copy)
+NameError: name 'nx' is not defined. Did you mean: 'np'?
+srun: error: nid0474: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1846769.0

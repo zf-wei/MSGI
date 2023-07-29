@@ -1,3 +1,7 @@
+1HOPE: 16, 32
 2LAP: 16, 32
 3LLE: 16, 32, 64, 128
-4DeepWalk: 32, 128
+4DeepWalk: 16， 32, 128
+5MNMF: 16, 32 
+6LINE: 结果不好
+7Node2Vec: 16, 32

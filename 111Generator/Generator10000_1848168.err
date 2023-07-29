@@ -1,0 +1,5 @@
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 1848168.0 ON nid0294 CANCELLED AT 2023-07-29T00:14:11 ***
+slurmstepd: error: *** JOB 1848168 ON nid0294 CANCELLED AT 2023-07-29T00:14:11 ***
+srun: error: nid0294: task 0: Terminated
+srun: launch/slurm: _step_signal: Terminating StepId=1848168.0

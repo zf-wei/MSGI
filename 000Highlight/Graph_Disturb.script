@@ -9,8 +9,8 @@
 #SBATCH --nodes=1                    # Number of nodes
 #SBATCH --ntasks-per-node=1          # Number of tasks per node
 #SBATCH --cpus-per-task=48
-#SBATCH --time=24:00:00             # Wall clock time limit
-#SBATCH --mem=50G                    # Memory limit per node
+#SBATCH --time=36:00:00             # Wall clock time limit
+#SBATCH --mem=120G                    # Memory limit per node
 #SBATCH -A r00165             # Account (project) allocation
 
 # Load any required modules
@@ -20,4 +20,4 @@ module load python/gpu
 # Activate a virtual environment if needed
 
 # Run your program
-srun python Graph_Disturb.py -N 1000 -D 16 -M 4 -r true
+srun python Graph_Disturb.py -N 1000 -D 32 -M 6 -r true

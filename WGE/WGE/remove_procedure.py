@@ -22,7 +22,7 @@ import json
 def generate_remove_procedure(random_disturb: bool, mu, graph, number_of_nodes, betweenness, sample_count=50):
     remove_procedure = []
     #i=0 
-    for percent in np.arange(0.05, 0.91, 0.05):
+    for percent in np.arange(0.05, 0.86, 0.05):
         ls = []
         while len(ls) < sample_count:
             temp = nodes_sample(random_disturb=random_disturb, graph=graph, number_of_nodes=number_of_nodes, percent=percent, betweenness=betweenness)

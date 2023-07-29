@@ -6,6 +6,7 @@ from karateclub import MNMF
 from ge import LINE
 from node2vec import Node2Vec
 import numpy as np
+import networkx as nx
 
 from clusim.clustering import Clustering
 
@@ -47,7 +48,7 @@ def perform_mnmf_embedding(graph, nodes_to_remove, embedding_dimension, number_o
     graph_copy.remove_nodes_from(nodes_to_remove)
     H = nx.relabel.convert_node_labels_to_integers(graph_copy)
     MNMF_model = MNMF(dimensions=embedding_dimension, clusters=number_of_intrinsic_clusters, 
-                      lambd=0.2, alpha=0.05, beta=0.05, iterations=100, lower_control=1e-15, eta=5.0, seed=42)
+                      lambd=0.2, alpha=0.05, beta=0.05, iterations=200, lower_control=1e-15, eta=5.0, seed=42)
     MNMF_model.fit(H)
     embd = MNMF_model.get_embedding()
     return embd
@@ -57,7 +58,7 @@ def perform_line_embedding(graph, nodes_to_remove, embedding_dimension, _, __, _
     graph_copy = graph.copy()
     graph_copy.remove_nodes_from(nodes_to_remove)
     model = LINE(graph_copy, embedding_size=embedding_dimension, order='first')
-    model.train(batch_size=8192, epochs=50, verbose=0)
+    model.train(batch_size=8192, epochs=100, verbose=0)
     LINE_embd = model.get_embeddings()
     embd = list(LINE_embd.values())
     return embd
@@ -65,7 +66,7 @@ def perform_line_embedding(graph, nodes_to_remove, embedding_dimension, _, __, _
 def perform_node2vec_embedding(graph, nodes_to_remove, embedding_dimension,_, idx, wk=32):
     graph_copy = graph.copy()
     graph_copy.remove_nodes_from(nodes_to_remove)
-    node2vec_model = Node2Vec(graph_copy, dimensions=embedding_dimension, walk_length=16, num_walks=10, workers=wk, quiet=True)
+    node2vec_model = Node2Vec(graph_copy, dimensions=embedding_dimension, walk_length=10, num_walks=80, workers=wk, quiet=True)
     node2vec_fit = node2vec_model.fit(window=10, min_count=1, batch_words=80000)
     nodes_range = np.array(range(graph.number_of_nodes()))
     nodes = [str(x) for x in nodes_range[idx]]

@@ -23,9 +23,11 @@ method = args.M_value
 random_disturb = args.random_disturb
 
 output_flag = True
-num_cpus_n2v = 2
 
-num_cpus = multiprocessing.cpu_count()
+if method==7:
+    num_cpus = 3
+else:
+    num_cpus = multiprocessing.cpu_count()
 
 MU = [0.015, 0.1, 0.2, 0.3, 0.4, 0.5]
 
