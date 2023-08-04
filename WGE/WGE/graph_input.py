@@ -47,3 +47,33 @@ def graph_input(N: int, MU: list, random_disturb:bool):
         index[mu] = remove_procedure_index(remove_procedure=remove_procedure[mu], num_nodes=N)
 
     return [graphs, membership, between, remove_procedure, index]
+
+
+    ############### 简易版本
+def graph_input_simple(N: int, mu: list, random_disturb: bool):
+
+    with open(f'graph_{N}_{mu}.edgelist', 'r') as file:
+        lines = file.readlines()
+
+    ### Process the lines and create a list of number pairs
+    edge_list = []
+    for line in lines:
+        pair = tuple(map(int, line.strip().split()))
+        edge_list.append(pair)
+
+    ### 新建一个图 
+    G = nx.Graph()
+    ### 向图添加点和边
+    sorted_nodes = sorted(set(range(N)))
+    G.add_nodes_from(sorted_nodes)
+    G.add_edges_from(edge_list)
+
+    ### Load Community Info
+    membership_list = f'graph_{N}_{mu}.membership'
+    membership = np.loadtxt(membership_list, dtype=int)
+    
+    ### Load Betweeness
+    btwn_file = f'graph_{N}_{mu}.between'
+    between = np.loadtxt(btwn_file)
+
+    return [G, membership, between]

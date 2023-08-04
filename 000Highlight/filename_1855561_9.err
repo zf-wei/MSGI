@@ -1,0 +1,4 @@
+slurmstepd: error: *** STEP 1855570.0 ON nid0161 CANCELLED AT 2023-08-02T12:22:57 ***
+slurmstepd: error: *** JOB 1855570 ON nid0161 CANCELLED AT 2023-08-02T12:22:57 ***
+srun: error: nid0161: task 0: Terminated
+srun: launch/slurm: _step_signal: Terminating StepId=1855570.0

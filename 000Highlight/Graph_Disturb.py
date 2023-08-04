@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser(description='This program performs graph embedd
 parser.add_argument('-N', '--N_value', type=int, help='Number of Vertices')
 parser.add_argument('-D', '--D_value', type=int, help='Embedding Dimension')
 parser.add_argument('-M', '--M_value', type=int, help='Embedding Method ID')
-parser.add_argument('-r', '--random_disturb', help='Disturb Graph Randomly?')
+parser.add_argument('-r', '--random_disturb', action='store_false', help='Disturb Graph Randomly?')
 
 # 解析命令行参数
 args = parser.parse_args()
@@ -29,7 +29,7 @@ if method==7:
 else:
     num_cpus = multiprocessing.cpu_count()
 
-MU = [0.015, 0.1, 0.2, 0.3, 0.4, 0.5]
+MU = [0.01, 0.1, 0.2, 0.3, 0.4, 0.5]
 
 
 graphs, membership, between, remove_procedure, index = graph_input(N=N, MU=MU, random_disturb=random_disturb)

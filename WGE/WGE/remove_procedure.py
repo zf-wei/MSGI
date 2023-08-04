@@ -2,6 +2,7 @@
 import random
 import networkx as nx
 import numpy as np
+from multiprocessing import Pool
 
 
 def nodes_sample(random_disturb: bool, graph, number_of_nodes: int, percent, betweenness):
@@ -37,7 +38,43 @@ def generate_remove_procedure(random_disturb: bool, mu, graph, number_of_nodes, 
         filename = f"graph_{graph.number_of_nodes()}_{mu}.btwn_rmv"
     with open(filename, 'w') as file:
         json.dump(remove_procedure, file)
-        
+
+def call_nodes_sample(args):
+    random_disturb, graph, number_of_nodes, percent, betweenness = args
+    return nodes_sample(random_disturb=random_disturb, graph=graph, number_of_nodes=number_of_nodes, percent=percent, betweenness=betweenness)
+    
+def generate_remove_procedure_parallel(random_disturb: bool, mu, graph, number_of_nodes, betweenness, upperbound, sample_count=50):
+    remove_procedure = []
+    
+    for percent in np.arange(0.05, upperbound+0.01, 0.05):
+        ls = []
+        successful_samples = 0
+        args_list = [(random_disturb, graph, number_of_nodes, percent, betweenness)] * 128
+
+        while successful_samples < sample_count:
+            pool = Pool()
+            print("returned")
+            results = pool.map(call_nodes_sample, args_list)
+            print("processing")
+            for temp in results:
+                if temp is not None:
+                    ls.append(temp)
+                    successful_samples += 1
+            print(successful_samples)
+
+        remove_procedure.append(ls[:sample_count])
+        print(f"{percent}，我是分割线")
+
+    pool.close()
+    pool.join()
+
+    if random_disturb:
+        filename = f"graph_{graph.number_of_nodes()}_{mu}.stoch_rmv"
+    else:
+        filename = f"graph_{graph.number_of_nodes()}_{mu}.btwn_rmv"
+    with open(filename, 'w') as file:
+        json.dump(remove_procedure, file)
+               
 
 def remove_procedure_index(remove_procedure, num_nodes):
     index = []
