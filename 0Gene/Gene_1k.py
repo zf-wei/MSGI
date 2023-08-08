@@ -13,7 +13,7 @@ max_deg = int(0.1 * n)  # Max Degree
 min_commu = 60  # Min Community Size
 max_commu = int(0.1 * n)  # Max Community Size
 
-MU = [0.55]
+MU = [0.01, 0.1, 0.2, 0.3, 0.4, 0.5]
 
 for mu in MU:
     G = LFR_benchmark_graph(

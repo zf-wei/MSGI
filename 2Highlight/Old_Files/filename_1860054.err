@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/000Highlight/Graph_Disturb_test.py", line 35, in <module>
+    graphs, membership, between, remove_procedure, index = graph_input(N=N, MU=MU, disturb_type=disturb_type)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/graph_input.py", line 53, in graph_input
+    index[mu] = remove_procedure_index(remove_procedure=remove_procedure[mu], num_nodes=N)
+KeyError: 0.1
+srun: error: nid0638: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1860054.0

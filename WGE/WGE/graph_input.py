@@ -3,7 +3,7 @@ import json
 import numpy as np
 from WGE.remove_procedure import remove_procedure_index
 
-def graph_input(N: int, MU: list, random_disturb:bool):
+def graph_input(N: int, MU: list, disturb_type:int):
 
     graphs = {}
     membership = {}
@@ -37,11 +37,17 @@ def graph_input(N: int, MU: list, random_disturb:bool):
         btwn_file = f'graph_{N}_{mu}.between'
         between[mu] = np.loadtxt(btwn_file)
         
-        if random_disturb:
+        if disturb_type==1:
             with open(f'graph_{N}_{mu}.stoch_rmv', 'r') as file:
                 remove_procedure[mu] = json.load(file)
-        else:
+        elif disturb_type==2:
             with open(f'graph_{N}_{mu}.btwn_rmv', 'r') as file:
+                remove_procedure[mu] = json.load(file)
+        elif disturb_type==3:
+            with open(f'graph_{N}_{mu}.trans_rmv', 'r') as file:
+                remove_procedure[mu] = json.load(file)
+        elif disturb_type==4:
+            with open(f'graph_{N}_{mu}.deg_rmv', 'r') as file:
                 remove_procedure[mu] = json.load(file)
 
         index[mu] = remove_procedure_index(remove_procedure=remove_procedure[mu], num_nodes=N)
@@ -50,7 +56,7 @@ def graph_input(N: int, MU: list, random_disturb:bool):
 
 
     ############### 简易版本
-def graph_input_simple(N: int, mu: list, random_disturb: bool):
+def graph_input_simple(N: int, mu: list, disturb_type: int):
 
     with open(f'graph_{N}_{mu}.edgelist', 'r') as file:
         lines = file.readlines()
@@ -71,9 +77,13 @@ def graph_input_simple(N: int, mu: list, random_disturb: bool):
     ### Load Community Info
     membership_list = f'graph_{N}_{mu}.membership'
     membership = np.loadtxt(membership_list, dtype=int)
-    
-    ### Load Betweeness
-    btwn_file = f'graph_{N}_{mu}.between'
-    between = np.loadtxt(btwn_file)
-
-    return [G, membership, between]
+ 
+    if disturb_type==4:
+        deg_file = f'graph_{N}_{mu}.deg'
+        degree = np.loadtxt(deg_file)
+        return [G, membership, degree]
+    else:
+        ### Load Betweeness
+        btwn_file = f'graph_{N}_{mu}.between'
+        between = np.loadtxt(btwn_file)
+        return [G, membership, between]

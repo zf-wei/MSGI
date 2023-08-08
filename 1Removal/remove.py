@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(description='This program performs graph embedd
 
 # 添加命令行参数
 parser.add_argument('-N', '--N_value', type=int, help='Number of Vertices')
-parser.add_argument('-r', '--random_disturb', action='store_false', help='Disturb Graph Randomly?')
+parser.add_argument('-d', '--disturb_type', type=int, help='Disturb type?')
 parser.add_argument('-m', '--mu_value', type=float, help='mu_value')  
 parser.add_argument('-u', '--percent_limit', type=float, help='percent_limit')  
 
@@ -17,17 +17,17 @@ args = parser.parse_args()
 
 # 读取命令行参数的值
 N = args.N_value
-random_disturb = args.random_disturb
+disturb_type=args.disturb_type
 mu = args.mu_value  # Modified this line
 upperbound = args.percent_limit
 
 
-graph, membership, between = graph_input_simple(N=N, mu=mu, random_disturb=random_disturb)  
+graph, membership, between = graph_input_simple(N=N, mu=mu, disturb_type=disturb_type)  
 
-if random_disturb:
+if disturb_type==1:
     between = [0] * graph.number_of_nodes()
 
 print(N, mu)
-generate_remove_procedure_parallel(random_disturb=random_disturb, mu=mu, graph=graph,
+generate_remove_procedure_parallel(disturb_type=disturb_type, mu=mu, graph=graph,
                                    number_of_nodes=graph.number_of_nodes(), betweenness=between, upperbound=upperbound,
                                    sample_count=50)

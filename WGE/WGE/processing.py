@@ -80,7 +80,7 @@ def calculate_score(embd, intrinsic_membership, number_of_intrinsic_clusters):
     score = EE(number_of_intrinsic_clusters, intrin_list, intrin_Clus, embd)
     return score
 
-def Comprehensive_Processing(output:bool, random_disturb:bool, method: int, num_cpus:int, 
+def Comprehensive_Processing(output:bool, disturb_type:int, method: int, num_cpus:int, 
                              graph, embedding_dimension, intrinsic_membership, remove_procedure, remove_procedure_index_form, mu):
     labels = ["1HOPE", "2LAP", "3LLE", "4DeepWalk", "5MNMF", "6LINE", "7Node2Vec"]
     #print(labels[method-1])
@@ -120,7 +120,7 @@ def Comprehensive_Processing(output:bool, random_disturb:bool, method: int, num_
         MEAN.append(mean)
         STD.append(std)
         if output:
-            save_scores_to_csv(random_disturb, scores, f"{graph.number_of_nodes()}_{mu}_{embedding_dimension}dim_" + labels[method-1] + "_SCORES")
-            save_to_csv(random_disturb, MEAN, f"{graph.number_of_nodes()}_{mu}_{embedding_dimension}dim_" + labels[method-1] + "_MEAN")
-            save_to_csv(random_disturb, STD, f"{graph.number_of_nodes()}_{mu}_{embedding_dimension}dim_" + labels[method-1] + "_STD")
+            save_scores_to_csv(disturb_type, scores, f"{graph.number_of_nodes()}_{mu}_{embedding_dimension}dim_" + labels[method-1] + "_SCORES")
+            save_to_csv(disturb_type, MEAN, f"{graph.number_of_nodes()}_{mu}_{embedding_dimension}dim_" + labels[method-1] + "_MEAN")
+            save_to_csv(disturb_type, STD, f"{graph.number_of_nodes()}_{mu}_{embedding_dimension}dim_" + labels[method-1] + "_STD")
     return MEAN, STD
