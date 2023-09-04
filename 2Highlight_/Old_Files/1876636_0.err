@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/2Highlight_/Graph_Disturb.py", line 3, in <module>
+    from WGE.processing import Comprehensive_Processing
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/processing.py", line 16, in <module>
+    from WGE.eval_embd import eval_embd as EE
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/eval_embd.py", line 8, in <module>
+    import clusim.sim as sim
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/clusim/sim.py", line 17, in <module>
+    import mpmath
+ModuleNotFoundError: No module named 'mpmath'
+srun: error: nid0354: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1876637.0

@@ -1,0 +1,6 @@
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/000Highlight/Graph_Disturb.py", line 27
+    if method==7：
+               ^
+SyntaxError: invalid decimal literal
+srun: error: nid0644: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1846763.0

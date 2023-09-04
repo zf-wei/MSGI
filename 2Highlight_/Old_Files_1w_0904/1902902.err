@@ -1,0 +1,5 @@
+usage: Graph_Disturb_mnmf.py [-h] [-N N_VALUE] [-D D_VALUE] [-M M_VALUE]
+                             [-d DISTURB_TYPE] [-m MU_VALUE]
+Graph_Disturb_mnmf.py: error: argument -m/--mu_value: invalid int value: '0.3'
+srun: error: nid0428: task 0: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=1902902.0

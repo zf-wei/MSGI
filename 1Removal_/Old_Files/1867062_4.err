@@ -1,0 +1,98 @@
+slurmstepd: error: *** STEP 1867062.0 ON nid0639 CANCELLED AT 2023-08-09T01:03:51 ***
+slurmstepd: error: *** JOB 1867062 ON nid0639 CANCELLED AT 2023-08-09T01:03:51 ***
+Process ForkPoolWorker-33882:
+Traceback (most recent call last):
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 416, in _send_bytes
+    self._send(header + buf)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 373, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 416, in _send_bytes
+    self._send(header + buf)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 373, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-33883:
+Traceback (most recent call last):
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 416, in _send_bytes
+    self._send(header + buf)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 373, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 416, in _send_bytes
+    self._send(header + buf)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 373, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-33888:
+Traceback (most recent call last):
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 416, in _send_bytes
+    self._send(header + buf)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 373, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 416, in _send_bytes
+    self._send(header + buf)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/connection.py", line 373, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe

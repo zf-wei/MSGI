@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#SBATCH --job-name=0.3mnmf_target    # Job name for the array
+#SBATCH --partition=general         # Partition (queue) name
+#SBATCH --output=%j.txt           # Output file for stdout (%A: array job ID, %a: task ID)
+#SBATCH --error=%j.err            # Output file for stderr (%A: array job ID, %a: task ID)
+#SBATCH --mail-type=ALL              # Email notification for job events
+#SBATCH --mail-user=weizhifengbrcc@gmail.com     # Email address to receive notifications
+#SBATCH --nodes=1                    # Number of nodes
+#SBATCH --ntasks-per-node=1          # Number of tasks per node
+#SBATCH --cpus-per-task=32
+#SBATCH --time=96:00:00              # Wall clock time limit
+#SBATCH --mem=100G                   # Memory limit per node
+#SBATCH -A r00165                    # Account (project) allocation
+
+# Load any required modules
+module load cudatoolkit
+module load python/gpu/3.10.5
+
+# Activate a virtual environment if needed
+
+
+# Run your program with the current D value
+srun python Graph_Disturb_mnmf.py -N 10000 -D 32 -M 5 -d 5 -m 0.3

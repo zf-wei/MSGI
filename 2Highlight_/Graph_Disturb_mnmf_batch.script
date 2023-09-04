@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#SBATCH --job-name=mnmf_array    # Job name for the array
+#SBATCH --partition=general       # Partition (queue) name
+#SBATCH --output=%A_%a.txt        # Output file for stdout (%A: array job ID, %a: task ID)
+#SBATCH --error=%A_%a.err         # Output file for stderr (%A: array job ID, %a: task ID)
+#SBATCH --mail-type=ALL           # Email notification for job events
+#SBATCH --mail-user=weizhifengbrcc@gmail.com     # Email address to receive notifications
+#SBATCH --nodes=1                 # Number of nodes
+#SBATCH --ntasks-per-node=1       # Number of tasks per node
+#SBATCH --cpus-per-task=32
+#SBATCH --time=96:00:00           # Wall clock time limit
+#SBATCH --mem=100G                # Memory limit per node
+#SBATCH -A r00165                 # Account (project) allocation
+#SBATCH --array=0-2                  # Number of tasks in the array (0 to 1, 2 tasks in total)
+
+# Load any required modules
+module load cudatoolkit
+module load python/gpu/3.10.5
+
+# Activate a virtual environment if needed
+
+# Define the range of -m values for the job array
+declare -a m_VALUES=("0.2" "0.3" "0.4")
+
+# Get the corresponding -m value for the current array task
+CURRENT_m=${m_VALUES[$SLURM_ARRAY_TASK_ID - 1]}
+
+# Run your program with the current -m value
+srun python Graph_Disturb_mnmf.py -N 10000 -D 32 -M 5 -d 1 -m $CURRENT_m

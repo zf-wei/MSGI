@@ -1,0 +1,2 @@
+slurmstepd: error: *** STEP 1876646.0 ON nid0008 CANCELLED AT 2023-08-19T20:52:14 ***
+slurmstepd: error: *** JOB 1876646 ON nid0008 CANCELLED AT 2023-08-19T20:52:14 ***

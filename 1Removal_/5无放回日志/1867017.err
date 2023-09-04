@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/1Removal_/remove.py", line 31, in <module>
+    generate_remove_procedure_parallel(disturb_type=disturb_type, mu=mu, graph=graph,
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/remove_procedure.py", line 103, in generate_remove_procedure_parallel
+    json.dump(remove_procedure, file)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/json/encoder.py", line 429, in _iterencode
+    yield from _iterencode_list(o, _current_indent_level)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/json/encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/json/encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/json/encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ndarray is not JSON serializable
+srun: error: nid0638: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1867017.0

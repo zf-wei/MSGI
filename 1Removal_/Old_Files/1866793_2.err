@@ -1,0 +1,30 @@
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/remove_procedure.py", line 60, in call_nodes_sample
+    return nodes_sample(disturb_type=disturb_type, graph=graph, number_of_nodes=number_of_nodes, percent=percent, betweenness=betweenness)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/remove_procedure.py", line 19, in nodes_sample
+    trans_rank = [math.exp(x) for x in betweenness]
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/remove_procedure.py", line 19, in <listcomp>
+    trans_rank = [math.exp(x) for x in betweenness]
+OverflowError: math range error
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/1Removal/remove.py", line 31, in <module>
+    generate_remove_procedure_parallel(disturb_type=disturb_type, mu=mu, graph=graph,
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/remove_procedure.py", line 73, in generate_remove_procedure_parallel
+    results = pool.map(call_nodes_sample, args_list)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/pool.py", line 364, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/multiprocessing/pool.py", line 771, in get
+    raise self._value
+OverflowError: math range error
+srun: error: nid0639: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1866796.0

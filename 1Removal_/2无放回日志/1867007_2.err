@@ -1,0 +1,14 @@
+slurmstepd: error: *** STEP 1867010.0 ON nid0639 CANCELLED AT 2023-08-08T22:40:33 ***
+slurmstepd: error: *** JOB 1867010 ON nid0639 CANCELLED AT 2023-08-08T22:40:33 ***
+Process ForkPoolWorker-33320:
+Process ForkPoolWorker-33315:
+Process ForkPoolWorker-33316:
+Process ForkPoolWorker-33317:
+Process ForkPoolWorker-33319:
+Process ForkPoolWorker-33305:
+Process ForkPoolWorker-33321:
+Process ForkPoolWorker-33309:
+Process ForkPoolWorker-33325:
+Process ForkPoolWorker-33323:
+Process ForkPoolWorker-33326:
+Process ForkPoolWorker-33324:

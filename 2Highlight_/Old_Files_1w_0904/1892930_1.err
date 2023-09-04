@@ -1,0 +1,5 @@
+slurmstepd: error: *** STEP 1892930.0 ON nid0435 CANCELLED AT 2023-09-02T15:51:17 DUE TO TIME LIMIT ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 1892930 ON nid0435 CANCELLED AT 2023-09-02T15:51:17 DUE TO TIME LIMIT ***
+srun: error: nid0435: task 0: Terminated
+srun: launch/slurm: _step_signal: Terminating StepId=1892930.0

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/000Highlight/Graph_Disturb_test.py", line 3, in <module>
+    from WGE.processing import Comprehensive_Processing
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/processing.py", line 13, in <module>
+    from WGE.utils import save_scores_to_csv
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/utils.py", line 38
+    def save_scores_to_csv(disturb_type: , scores, filename):
+                                         ^
+SyntaxError: invalid syntax
+srun: error: nid0638: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1860010.0

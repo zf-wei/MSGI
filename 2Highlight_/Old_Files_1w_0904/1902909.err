@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/2Highlight_/Graph_Disturb_mnmf.py", line 40, in <module>
+    graphs, membership, between, remove_procedure, index = graph_input(N=N, MU=MU, disturb_type=disturb_type)
+NameError: name 'MU' is not defined. Did you mean: 'mu'?
+srun: error: nid0428: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1902909.0

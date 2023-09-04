@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#SBATCH --job-name=remove          # Job name
+#SBATCH --partition=debug         # Partition (queue) name
+#SBATCH --output=%A_%a.txt     # Output file for stdout (%A: job ID, %a: array task ID)
+#SBATCH --error=%A_%a.err      # Output file for stderr (%A: job ID, %a: array task ID)
+#SBATCH --mail-type=ALL              # Email notification for job events
+#SBATCH --mail-user=zfwei@iu.edu     # Email address to receive notifications
+#SBATCH --nodes=1                    # Number of nodes
+#SBATCH --ntasks-per-node=1          # Number of tasks per node
+#SBATCH --cpus-per-task=16
+#SBATCH --time=2:00:00             # Wall clock time limit
+#SBATCH --mem=100G                    # Memory limit per node
+#SBATCH -A r00165             # Account (project) allocation
+#SBATCH --array=0-4                # Job array index range (0 to 4 for 5 jobs)
+
+# Load any required modules
+module load python/gpu
+
+# Activate a virtual environment if needed
+
+# Array of -m values to be used in the job
+declare -a m_values=("0.1" "0.2" "0.3" "0.4" "0.5")
+
+# Get the appropriate -m value for this job array task ID
+m=${m_values[$SLURM_ARRAY_TASK_ID]}
+
+# Run your program
+srun python remove.py -N 1000 -m $m -u 0.75 -r

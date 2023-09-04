@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/000Highlight/Graph_Disturb_test.py", line 35, in <module>
+    graphs, membership, between, remove_procedure, index = graph_input(N=N, MU=MU, disturb_type=disturb_type)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/graph_input.py", line 47, in graph_input
+    with open(f'graph_{N}_{mu}.exp_rmv', 'r') as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'graph_1000_0.01.exp_rmv'
+srun: error: nid0638: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1860016.0

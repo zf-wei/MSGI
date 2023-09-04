@@ -1,0 +1,4 @@
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 1876615.0 ON nid0638 CANCELLED AT 2023-08-19T17:26:35 ***
+Process ForkPoolWorker-7734:
+slurmstepd: error: *** JOB 1876615 ON nid0638 CANCELLED AT 2023-08-19T17:26:35 ***

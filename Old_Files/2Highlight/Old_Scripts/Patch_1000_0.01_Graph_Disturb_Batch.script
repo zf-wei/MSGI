@@ -1,0 +1,44 @@
+#!/bin/bash
+
+#SBATCH --job-name=Graph_Disturb_Array    # Job name for the array
+#SBATCH --partition=debug                 # Partition (queue) name
+#SBATCH --output=filename_%A_%a.txt       # Output file for stdout (%A is the job ID, %a is the array index)
+#SBATCH --error=filename_%A_%a.err        # Output file for stderr (%A is the job ID, %a is the array index)
+#SBATCH --mail-type=ALL                   # Email notification for job events
+#SBATCH --mail-user=zfwei@iu.edu          # Email address to receive notifications
+#SBATCH --nodes=1                         # Number of nodes
+#SBATCH --ntasks-per-node=1               # Number of tasks per node
+#SBATCH --cpus-per-task=16
+#SBATCH --time=4:00:00                   # Wall clock time limit
+#SBATCH --mem=120G                        # Memory limit per node
+#SBATCH -A r00165                         # Account (project) allocation
+#SBATCH --array=1-10                      # Job array index range (from 1 to 10)
+
+# Load any required modules
+module load cudatoolkit
+module load python/gpu
+
+# Activate a virtual environment if needed
+
+# Run your program with different combinations of -M and -D
+if [ $SLURM_ARRAY_TASK_ID -eq 1 ]; then
+    srun python Patch_1000_0.01_Graph_Disturb.py -N 1000 -D 32 -M 1 -r true
+elif [ $SLURM_ARRAY_TASK_ID -eq 2 ]; then
+    srun python Patch_1000_0.01_Graph_Disturb.py -N 1000 -D 32 -M 2 -r true
+elif [ $SLURM_ARRAY_TASK_ID -eq 3 ]; then
+    srun python Patch_1000_0.01_Graph_Disturb.py -N 1000 -D 32 -M 4 -r true
+elif [ $SLURM_ARRAY_TASK_ID -eq 4 ]; then
+    srun python Patch_1000_0.01_Graph_Disturb.py -N 1000 -D 32 -M 5 -r true
+elif [ $SLURM_ARRAY_TASK_ID -eq 5 ]; then
+    srun python Patch_1000_0.01_Graph_Disturb.py -N 1000 -D 32 -M 7 -r true
+elif [ $SLURM_ARRAY_TASK_ID -eq 6 ]; then
+    srun python Patch_1000_0.01_Graph_Disturb.py -N 1000 -D 16 -M 1 -r true
+elif [ $SLURM_ARRAY_TASK_ID -eq 7 ]; then
+    srun python Patch_1000_0.01_Graph_Disturb.py -N 1000 -D 16 -M 2 -r true
+elif [ $SLURM_ARRAY_TASK_ID -eq 8 ]; then
+    srun python Patch_1000_0.01_Graph_Disturb.py -N 1000 -D 16 -M 4 -r true
+elif [ $SLURM_ARRAY_TASK_ID -eq 9 ]; then
+    srun python Patch_1000_0.01_Graph_Disturb.py -N 1000 -D 16 -M 5 -r true
+elif [ $SLURM_ARRAY_TASK_ID -eq 10 ]; then
+    srun python Patch_1000_0.01_Graph_Disturb.py -N 1000 -D 16 -M 7 -r true
+fi

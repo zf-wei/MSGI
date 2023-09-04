@@ -17,17 +17,23 @@ def generate_output(disturb_type: int, filename):
     # Generate the folder name with the current date
     now = datetime.now()
     if disturb_type==1:
-        folder_name = f"{slurm_job_id}_Stoch_{now.strftime('%Y-%m-%d')}"#-%H-%M
+        folder_name = f"{slurm_job_id}_Stoch_{now.strftime('%Y-%m')}"#-%H-%M
         filename = "Stoch_"+filename
     elif disturb_type==2:
-        folder_name = f"{slurm_job_id}_Btwn_{now.strftime('%Y-%m-%d')}"
+        folder_name = f"{slurm_job_id}_Btwn_{now.strftime('%Y-%m')}"
         filename = "Btwn_"+filename
     elif disturb_type==3:
-        folder_name = f"{slurm_job_id}_Trans_{now.strftime('%Y-%m-%d')}"
+        folder_name = f"{slurm_job_id}_Trans_{now.strftime('%Y-%m')}"
         filename = "Trans_"+filename
     elif disturb_type==4:
-        folder_name = f"{slurm_job_id}_Deg_{now.strftime('%Y-%m-%d')}"
+        folder_name = f"{slurm_job_id}_Deg_{now.strftime('%Y-%m')}"
         filename = "Deg_"+filename
+    elif disturb_type==5:
+        folder_name = f"{slurm_job_id}_Rank_{now.strftime('%Y-%m')}"
+        filename = "Rank_"+filename
+    elif disturb_type==6:
+        folder_name = f"{slurm_job_id}_TRank_{now.strftime('%Y-%m')}"
+        filename = "TRank_"+filename
 
     # Create the output directory if it doesn't exist
     output_dir = os.path.join(os.getcwd(), folder_name)

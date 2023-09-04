@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#SBATCH --job-name=remove_array    # Job name for the array
+#SBATCH --partition=debug         # Partition (queue) name
+#SBATCH --output=%A_%a.txt        # Output file for stdout (%A: array job ID, %a: task ID)
+#SBATCH --error=%A_%a.err         # Output file for stderr (%A: array job ID, %a: task ID)
+#SBATCH --mail-type=ALL          # Email notification for job events
+#SBATCH --mail-user=zfwei@iu.edu # Email address to receive notifications
+#SBATCH --nodes=1                # Number of nodes
+#SBATCH --ntasks-per-node=1      # Number of tasks per node
+#SBATCH --cpus-per-task=16
+#SBATCH --time=4:00:00           # Wall clock time limit
+#SBATCH --mem=100G               # Memory limit per node
+#SBATCH -A r00165                # Account (project) allocation
+
+# Load any required modules
+module load python/gpu
+
+# Activate a virtual environment if needed
+
+# Run your program with the current m value (0.1)
+srun python remove.py -N 1000 -m 0.01 -u 0.55 -d 5

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/2Highlight_/Graph_Disturb.py", line 42, in <module>
+    MEAN[mu], STD[mu] = Comprehensive_Processing(output=output_flag, disturb_type=disturb_type, method=method, num_cpus=num_cpus, 
+NameError: name 'num_cpus' is not defined. Did you mean: 'num_cpu'?
+srun: error: nid0348: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1883339.0

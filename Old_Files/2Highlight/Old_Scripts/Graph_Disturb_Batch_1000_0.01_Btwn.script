@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#SBATCH --job-name=Graph_Disturb_Array    # Job name for the array
+#SBATCH --partition=general               # Partition (queue) name
+#SBATCH --output=filename_%A_%a.txt       # Output file for stdout (%A is the job ID, %a is the array index)
+#SBATCH --error=filename_%A_%a.err        # Output file for stderr (%A is the job ID, %a is the array index)
+#SBATCH --mail-type=ALL                   # Email notification for job events
+#SBATCH --mail-user=zfwei@iu.edu          # Email address to receive notifications
+#SBATCH --nodes=1                         # Number of nodes
+#SBATCH --ntasks-per-node=1               # Number of tasks per node
+#SBATCH --cpus-per-task=16
+#SBATCH --time=32:00:00                   # Wall clock time limit
+#SBATCH --mem=120G                        # Memory limit per node
+#SBATCH -A r00165                         # Account (project) allocation
+#SBATCH --array=1-12                      # Job array index range (from 1 to 12)
+
+# Load any required modules
+module load cudatoolkit
+module load python/gpu
+
+# Activate a virtual environment if needed
+
+# Map SLURM_ARRAY_TASK_ID to corresponding -D and -M values
+D_values=("16" "32")
+M_values=("1" "2" "3" "4" "5" "7")
+
+# Calculate index for -D and -M arrays
+D_index=$((($SLURM_ARRAY_TASK_ID - 1) / ${#M_values[@]}))
+M_index=$((($SLURM_ARRAY_TASK_ID - 1) % ${#M_values[@]}))
+
+# Get -D and -M values
+D=${D_values[$D_index]}
+M=${M_values[$M_index]}
+
+# Run your program with different combinations of -D and -M
+srun python Graph_Disturb.py -N 1000 -D $D -M $M -r

@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/2Highlight_/Graph_Disturb.py", line 40, in <module>
+    STD = {}
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/processing.py", line 113, in Comprehensive_Processing
+    embd = embedding_func(graph, nodes_to_remove, embedding_dimension, number_of_intrinsic_clusters, idxx, num_cpus)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/processing.py", line 35, in perform_lle_embedding
+    embd = lles(graph_copy, embedding_dimension)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/lle.py", line 29, in lles
+    v = v[:, idx]
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py", line 1345, in eigs
+    params.iterate()
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py", line 755, in iterate
+    self._raise_no_convergence()
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py", line 375, in _raise_no_convergence
+    raise ArpackNoConvergence(msg % (num_iter, k_ok, self.k), ev, vec)
+scipy.sparse.linalg._eigen.arpack.arpack.ArpackNoConvergence: ARPACK error -1: No convergence (50001 iterations, 0/17 eigenvectors converged) [ARPACK error -14: DNAUPD  did not find any eigenvalues to sufficient accuracy.]
+srun: error: nid0640: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1881620.0

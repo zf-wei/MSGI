@@ -49,6 +49,12 @@ def graph_input(N: int, MU: list, disturb_type:int):
         elif disturb_type==4:
             with open(f'graph_{N}_{mu}.deg_rmv', 'r') as file:
                 remove_procedure[mu] = json.load(file)
+        elif disturb_type==5:
+            with open(f'graph_{N}_{mu}.rank_rmv', 'r') as file:
+                remove_procedure[mu] = json.load(file)
+        elif disturb_type==6:
+            with open(f'graph_{N}_{mu}.trank_rmv', 'r') as file:
+                remove_procedure[mu] = json.load(file)
 
         index[mu] = remove_procedure_index(remove_procedure=remove_procedure[mu], num_nodes=N)
 
@@ -80,6 +86,10 @@ def graph_input_simple(N: int, mu: list, disturb_type: int):
  
     if disturb_type==4:
         deg_file = f'graph_{N}_{mu}.deg'
+        degree = np.loadtxt(deg_file)
+        return [G, membership, degree]
+    elif disturb_type==5 or disturb_type==6:
+        deg_file = f'graph_{N}_{mu}.rank'
         degree = np.loadtxt(deg_file)
         return [G, membership, degree]
     else:

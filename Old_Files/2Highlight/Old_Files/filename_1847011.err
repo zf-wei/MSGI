@@ -1,0 +1,46 @@
+joblib.externals.loky.process_executor._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 463, in _process_worker
+    r = call_item()
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 291, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/parallel.py", line 588, in __call__
+    return [func(*args, **kwargs)
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/parallel.py", line 588, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/node2vec/parallel.py", line 62, in parallel_generate_walks
+    walk_to = random.choices(walk_options, weights=probabilities)[0]
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/random.py", line 532, in choices
+    raise ValueError('The number of weights does not match the population')
+ValueError: The number of weights does not match the population
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/000Highlight/Graph_Disturb.py", line 40, in <module>
+    MEAN[mu], STD[mu] = Comprehensive_Processing(output=output_flag, random_disturb=random_disturb, method=method, num_cpus=num_cpus, 
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/processing.py", line 113, in Comprehensive_Processing
+    embd = embedding_func(graph, nodes_to_remove, embedding_dimension, number_of_intrinsic_clusters, idxx, num_cpus)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/processing.py", line 69, in perform_node2vec_embedding
+    node2vec_model = Node2Vec(graph_copy, dimensions=embedding_dimension, walk_length=10, num_walks=80, workers=wk, quiet=True)
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/node2vec/node2vec.py", line 74, in __init__
+    self.walks = self._generate_walks()
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/node2vec/node2vec.py", line 159, in _generate_walks
+    walk_results = Parallel(n_jobs=self.workers, temp_folder=self.temp_folder, require=self.require)(
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/parallel.py", line 1944, in __call__
+    return output if self.return_generator else list(output)
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/parallel.py", line 1587, in _get_outputs
+    yield from self._retrieve()
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/parallel.py", line 1691, in _retrieve
+    self._raise_error_fast()
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/parallel.py", line 1726, in _raise_error_fast
+    error_job.get_result(self.timeout)
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/parallel.py", line 735, in get_result
+    return self._return_or_raise()
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/parallel.py", line 753, in _return_or_raise
+    raise self._result
+ValueError: The number of weights does not match the population
+srun: error: nid0363: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=1847011.0
