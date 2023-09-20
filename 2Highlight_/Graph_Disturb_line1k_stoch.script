@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#SBATCH --job-name=LINE_random_1k    # Job name for the array
+#SBATCH --partition=gpu          # Partition (queue) name
+#SBATCH --output=%j_%a.txt       # Output file for stdout (%A: array job ID, %a: task ID)
+#SBATCH --error=%j_%a.err        # Output file for stderr (%A: array job ID, %a: task ID)
+#SBATCH --mail-type=ALL              # Email notification for job events
+#SBATCH --mail-user=weizhifengbrcc@gmail.com     # Email address to receive notifications
+#SBATCH --nodes=1                    # Number of nodes
+#SBATCH --ntasks-per-node=1          # Number of tasks per node
+#SBATCH --cpus-per-task=32
+#SBATCH --gpus-per-task=4
+#SBATCH --time=48:00:00              # Wall clock time limit
+#SBATCH --mem=50G                   # Memory limit per node
+#SBATCH -A r00165                    # Account (project) allocation
+#SBATCH --array=0-11                  # Number of tasks in the array (0 to 1, 2 tasks in total)
+
+# Load any required modules
+module load cudatoolkit
+module load python/gpu/3.10.5
+
+# Define values for -D and -m
+D_values=(16 32)
+m_values=(0.01 0.1 0.2 0.3 0.4 0.5)
+
+# Calculate the total number of tasks
+total_D_values=${#D_values[@]}
+total_m_values=${#m_values[@]}
+total_tasks=$((total_D_values * total_m_values))
+
+# Calculate the task ID for this job array task
+task_id=$((SLURM_ARRAY_TASK_ID))
+
+# Calculate the indices for the current D and m values
+D_index=$((task_id / total_m_values))
+m_index=$((task_id % total_m_values))
+
+# Extract the current D and m values
+current_D="${D_values[$D_index]}"
+current_m="${m_values[$m_index]}"
+
+# Run your program with the current D and m values
+srun python Graph_Disturb_LINE.py -N 1000 -D "$current_D" -M 6 -d 1 -m "$current_m"
