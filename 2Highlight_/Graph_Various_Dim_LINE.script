@@ -1,30 +1,31 @@
 #!/bin/bash
 
 #SBATCH --job-name=Graph_Disturb_array  # Job name for the array
-#SBATCH --partition=general             # Partition (queue) name
+#SBATCH --partition=gpu             # Partition (queue) name
 #SBATCH --output=filename_%A_%a.txt      # Output file for stdout (%A: array job ID, %a: task ID)
 #SBATCH --error=filename_%A_%a.err       # Output file for stderr (%A: array job ID, %a: task ID)
 #SBATCH --mail-type=ALL                 # Email notification for job events
-#SBATCH --mail-user=zfwei@iu.edu        # Email address to receive notifications
+#SBATCH --mail-user=weizhifengbrcc@gmail.com       # Email address to receive notifications
 #SBATCH --nodes=1                       # Number of nodes
 #SBATCH --ntasks-per-node=1             # Number of tasks per node
-#SBATCH --cpus-per-task=16
-#SBATCH --time=12:00:00                 # Wall clock time limit
+#SBATCH --cpus-per-task=32
+#SBATCH --gpus-per-task=4
+#SBATCH --time=48:00:00                 # Wall clock time limit
 #SBATCH --mem=100G                      # Memory limit per node
 #SBATCH -A r00165                       # Account (project) allocation
-#SBATCH --array=0-7                     # Number of tasks in the array (0 to 7, 8 tasks in total)
+#SBATCH --array=0-2                     # Number of tasks in the array (0 to 7, 8 tasks in total)
 
 # Load any required modules
 module load cudatoolkit
-module load python/gpu
+module load python/gpu/3.10.5
 
 # Activate a virtual environment if needed
 
 # Define the range of D values
-D_values=(48 64 80 96 112 128 144 160)
+D_values=(64 128 256)
 
 # Get the current D value based on the task ID
 current_D=${D_values[$SLURM_ARRAY_TASK_ID]}
 
 # Run your program with the current D value and M fixed at 1
-srun python Graph_Disturb.py -N 1000 -D "$current_D" -M 1 -d 5
+srun python Graph_Disturb.py -N 1000 -D "$current_D" -M 6 -d 1
