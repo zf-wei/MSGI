@@ -19,4 +19,4 @@ module load python/gpu
 # Activate a virtual environment if needed
 
 # Run your program
-srun python remove.py -N 1000 -m 0.01 -u 0.3 -d 2
+srun python remove.py -N 986 -m 0.01 -u 0.6 -d 1

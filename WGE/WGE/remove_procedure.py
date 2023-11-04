@@ -110,7 +110,46 @@ def generate_remove_procedure_parallel(disturb_type: int, mu, graph, number_of_n
     with open(filename, 'w') as file:
         json.dump(remove_procedure, file)
                
+def generate_remove_procedure_parallel_real(disturb_type: int, mu, graph, number_of_nodes, betweenness, upperbound, sample_count=50):
+    remove_procedure = []
+    
+    for percent in np.arange(0.1*upperbound, upperbound+0.000001, 0.1*upperbound):
+        ls = []
+        successful_samples = 0
+        args_list = [(disturb_type, graph, number_of_nodes, percent, betweenness)] * 128
 
+        while successful_samples < sample_count:
+            pool = Pool()
+            print("returned")
+            results = pool.map(call_nodes_sample, args_list)
+            print("processing")
+            for temp in results:
+                if temp is not None:
+                    ls.append(temp)
+                    successful_samples += 1
+            print(successful_samples)
+
+        remove_procedure.append(ls[:sample_count])
+        print(f"{percent}，我是分割线")
+
+    pool.close()
+    pool.join()
+
+    if disturb_type==1:
+        filename = f"graph_{graph.number_of_nodes()}_{mu}.stoch_rmv"
+    elif disturb_type==2:
+        filename = f"graph_{graph.number_of_nodes()}_{mu}.btwn_rmv"
+    elif disturb_type==3:
+        filename = f"graph_{graph.number_of_nodes()}_{mu}.trans_rmv"
+    elif disturb_type==4:
+        filename = f"graph_{graph.number_of_nodes()}_{mu}.deg_rmv"
+    elif disturb_type==5:
+        filename = f"graph_{graph.number_of_nodes()}_{mu}.rank_rmv"
+    elif disturb_type==6:
+        filename = f"graph_{graph.number_of_nodes()}_{mu}.trank_rmv"
+    with open(filename, 'w') as file:
+        json.dump(remove_procedure, file)
+        
 def remove_procedure_index(remove_procedure, num_nodes):
     index = []
     for sublist_list in remove_procedure:
