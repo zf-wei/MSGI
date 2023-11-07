@@ -1,6 +1,6 @@
 from gem.embedding.hope import HOPE
 from gem.embedding.lap import LaplacianEigenmaps
-from WGE.lle import lle_np as lles
+from WGE.lle import lle_cupy as lles
 from WGE.DeepWalk import DeepWalk
 from karateclub import MNMF
 from ge import LINE
