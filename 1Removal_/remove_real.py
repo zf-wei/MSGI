@@ -1,7 +1,7 @@
 import argparse
 from WGE.graph_input import graph_input_simple
 import multiprocessing
-from WGE.remove_procedure import generate_remove_procedure_parallel_real
+from WGE.remove_procedure import generate_remove_procedure_realreal
 
 # 创建参数解析器
 parser = argparse.ArgumentParser(description='This program performs graph embedding, clustering. Plot will be made accordingly')
@@ -28,6 +28,6 @@ if disturb_type==1:
     between = [0] * graph.number_of_nodes()
 
 print(N, mu)
-generate_remove_procedure_parallel_real(disturb_type=disturb_type, mu=mu, graph=graph,
+generate_remove_procedure_realreal(disturb_type=disturb_type, mu=mu, graph=graph,
                                    number_of_nodes=graph.number_of_nodes(), betweenness=between, upperbound=upperbound,
                                    sample_count=50)

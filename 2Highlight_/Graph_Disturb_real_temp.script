@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#SBATCH --job-name=real_986_temp   # Job name for the array
+#SBATCH --partition=debug        # Partition (queue) name
+#SBATCH --output=%A_%a.txt           # Output file for stdout (%A: array job ID, %a: task ID)
+#SBATCH --error=%A_%a.err            # Output file for stderr (%A: array job ID, %a: task ID)
+#SBATCH --mail-type=ALL              # Email notification for job events
+#SBATCH --mail-user=weizhifengbrcc@gmail.com     # Email address to receive notifications
+#SBATCH --nodes=1                    # Number of nodes
+#SBATCH --ntasks-per-node=1          # Number of tasks per node
+#SBATCH --cpus-per-task=2
+#SBATCH --time=0:30:00              # Wall clock time limit
+#SBATCH --mem=10G                   # Memory limit per node
+#SBATCH -A r00165                    # Account (project) allocation
+
+# Load any required modules
+module load cudatoolkit
+module load python/gpu/3.10.5
+
+# Activate a virtual environment if needed
+
+# Define an array of -D values
+# declare -a D_values=("16" "32")
+
+# Define an array of -M values
+# declare -a M_values=("3" "6")
+
+# Get the current D and M values based on the task ID
+# current_D=${D_values[$SLURM_ARRAY_TASK_ID % 2]}
+# current_M=${M_values[$SLURM_ARRAY_TASK_ID / 2]}
+
+# Run your program with the current D and M values
+srun python Graph_Disturb_real.py -N 986 -D 16 -M 1 -d 1 -m 0.01

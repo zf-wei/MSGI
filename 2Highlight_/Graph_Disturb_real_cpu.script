@@ -12,7 +12,7 @@
 #SBATCH --time=12:00:00              # Wall clock time limit
 #SBATCH --mem=100G                   # Memory limit per node
 #SBATCH -A r00165                    # Account (project) allocation
-#SBATCH --array=0-9                 # Number of tasks in the array (0 to 11, 12 tasks in total)
+#SBATCH --array=0-7                 # Number of tasks in the array (0 to 11, 12 tasks in total)
 
 # Load any required modules
 module load cudatoolkit
@@ -24,11 +24,11 @@ module load python/gpu/3.10.5
 declare -a D_values=("16" "32")
 
 # Define an array of -M values
-declare -a M_values=("1" "2" "3" "4" "5")
+declare -a M_values=("1" "2" "4" "5")
 
 # Get the current D and M values based on the task ID
 current_D=${D_values[$SLURM_ARRAY_TASK_ID % 2]}
 current_M=${M_values[$SLURM_ARRAY_TASK_ID / 2]}
 
 # Run your program with the current D and M values
-srun python Graph_Disturb_LINE.py -N 986 -D "$current_D" -M "$current_M" -d 1 -m 0.01
+srun python Graph_Disturb_real.py -N 986 -D "$current_D" -M "$current_M" -d 5 -m 0.01
