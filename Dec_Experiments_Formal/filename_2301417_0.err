@@ -1,0 +1,47 @@
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/concurrent/futures/process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_Formal/Size_and_Dim.py", line 137, in OneRound
+    embd = Embed_Graph(method_id, G, D, max(intrinsic_list)+1)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_Formal/Size_and_Dim.py", line 82, in Embed_Graph
+    embd = embedding_func(graph, embedding_dimension, number_of_intrinsic_clusters)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_Formal/Size_and_Dim.py", line 27, in perform_lle_embedding
+    embd = lles(graph, embedding_dimension)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/lle.py", line 20, in lle_cupy
+    w, v = cp.linalg.eigh(I_min_A)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/cupy/linalg/_eigenvalue.py", line 146, in eigh
+    return _syevd(a, UPLO, True)
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/cupy/linalg/_eigenvalue.py", line 57, in _syevd
+    work_device = cupy.empty(work_device_size, 'b')
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/cupy/_creation/basic.py", line 22, in empty
+    return cupy.ndarray(shape, dtype, order=order)
+  File "cupy/_core/core.pyx", line 171, in cupy._core.core.ndarray.__init__
+  File "cupy/cuda/memory.pyx", line 698, in cupy.cuda.memory.alloc
+  File "cupy/cuda/memory.pyx", line 1375, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1396, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1076, in cupy.cuda.memory.SingleDeviceMemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1097, in cupy.cuda.memory.SingleDeviceMemoryPool._malloc
+  File "cupy/cuda/memory.pyx", line 1335, in cupy.cuda.memory.SingleDeviceMemoryPool._try_malloc
+cupy.cuda.memory.OutOfMemoryError: Out of memory allocating 1,176,532,480 bytes (allocated so far: 2,256,836,608 bytes).
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_Formal/Size_and_Dim_Run.py", line 24, in <module>
+    run_SD(args.method_id, args.itera, args.num_workers)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_Formal/Size_and_Dim_Run.py", line 7, in run_SD
+    RECORD_parallel = MoreRound(method_id, itera, num_workers)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_Formal/Size_and_Dim.py", line 150, in MoreRound
+    results = [future.result() for future in futures]
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_Formal/Size_and_Dim.py", line 150, in <listcomp>
+    results = [future.result() for future in futures]
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+cupy.cuda.memory.OutOfMemoryError: Out of memory allocating 1,176,532,480 bytes (allocated so far: 2,256,836,608 bytes).
+srun: error: nid0678: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=2301418.0

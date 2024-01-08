@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#SBATCH --job-name=SizeDim  # Job name for the array
+#SBATCH --partition=gpu            # Partition (queue) name
+#SBATCH --output=filename_%A_%a.txt      # Output file for stdout (%A: array job ID, %a: task ID)
+#SBATCH --error=filename_%A_%a.err       # Output file for stderr (%A: array job ID, %a: task ID)
+#SBATCH --mail-type=ALL                 # Email notification for job events
+#SBATCH --mail-user=weizhifengbrcc@gmail.com       # Email address to receive notifications
+#SBATCH --nodes=1                       # Number of nodes
+#SBATCH --ntasks-per-node=1             # Number of tasks per node
+#SBATCH --cpus-per-task=32
+#SBATCH --gpus-per-task=2
+#SBATCH --time=48:00:00                 # Wall clock time limit
+#SBATCH --mem=200G                      # Memory limit per node
+#SBATCH -A r00165                       # Account (project) allocation
+
+# Load any required modules
+module load cudatoolkit
+module load python/gpu/3.10.5
+
+# Run your program with the current D value and M fixed at 1
+srun python Size_and_Dim_Run.py --method_id 6 --itera 25 --num_workers 1

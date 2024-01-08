@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_Formal_001_7_10/Size_and_Dim_001_Run.py", line 4, in <module>
+    from Size_and_Dim import OneRound
+ModuleNotFoundError: No module named 'Size_and_Dim'
+srun: error: nid0069: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=2332764.0

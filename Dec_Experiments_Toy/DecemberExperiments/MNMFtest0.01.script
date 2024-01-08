@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Job Configuration
+#SBATCH --job-name=MNMF0.01          # Job name for the array
+#SBATCH --partition=general         # Partition (queue) name
+#SBATCH --output=%A.txt             # Output file for stdout (%A: array job ID, %a: task ID)
+#SBATCH --error=%A.err              # Output file for stderr (%A: array job ID, %a: task ID)
+#SBATCH --mail-type=ALL             # Email notification for job events
+#SBATCH --mail-user=weizhifengbrcc@gmail.com # Email address to receive notifications
+#SBATCH --nodes=1                    # Number of nodes
+#SBATCH --ntasks-per-node=1          # Number of tasks per node
+#SBATCH --cpus-per-task=32
+#SBATCH --time=96:00:00               # Wall clock time limit
+#SBATCH --mem=120G                     # Memory limit per node
+#SBATCH -A r00165                    # Account (project) allocation
+
+# Load any required modules
+module load cudatoolkit
+module load python/gpu/3.10.5
+
+# Run the Python script
+srun python MNMFtest0.01.py
