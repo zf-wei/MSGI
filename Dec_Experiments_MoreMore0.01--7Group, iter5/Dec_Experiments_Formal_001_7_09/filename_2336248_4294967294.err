@@ -160,3 +160,9 @@
   warnings.warn(
 /N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
   warnings.warn(
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_MoreMore0.01--7Group, iter5/Dec_Experiments_Formal_001_7_09/Size_and_Dim_001_Run.py", line 16, in <module>
+    with h5py.File(f'{method_id}.record', 'w') as hf:
+NameError: name 'method_id' is not defined
+srun: error: nid0030: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=2336248.0

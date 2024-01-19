@@ -10,7 +10,7 @@
 #SBATCH --ntasks-per-node=1             # Number of tasks per node
 #SBATCH --cpus-per-task=32
 #SBATCH --gpus-per-task=2
-#SBATCH --time=20:00:00                 # Wall clock time limit
+#SBATCH --time=12:00:00                 # Wall clock time limit
 #SBATCH --mem=60G                      # Memory limit per node
 #SBATCH -A r00165                       # Account (project) allocation
 
@@ -19,4 +19,4 @@ module load cudatoolkit
 module load python/gpu/3.10.5
 
 # Run your program with the current D value and M fixed at 1
-srun python Size_and_Dim_Run.py --method_id 6 --itera 10 --num_workers 1
+srun python Size_and_Dim_Run.py --method_id 6 --itera 5 --num_workers 1

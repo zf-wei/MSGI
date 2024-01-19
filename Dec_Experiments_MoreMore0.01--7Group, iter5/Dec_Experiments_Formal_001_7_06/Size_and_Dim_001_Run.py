@@ -13,8 +13,8 @@ args = parser.parse_args()
 RECORD_parallel = OneRound(args.method_id, args.itera)
 RECORD_parallel = np.array(RECORD_parallel)
 
-with h5py.File(f'{method_id}.record', 'w') as hf:
+with h5py.File(f'{args.method_id}.record', 'w') as hf:
     hf.create_dataset('RECORD_parallel', data=RECORD_parallel)
 
 for i in [0, 1, 2, 3]:
-    np.savetxt(f"{method_id}_{i}.mean", np.mean(RECORD_parallel, axis=0)[:, :, i])
+    np.savetxt(f"{args.method_id}_{i}.mean", np.mean(RECORD_parallel, axis=0)[:, :, i])

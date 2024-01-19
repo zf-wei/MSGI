@@ -150,3 +150,8 @@
   warnings.warn(
 /N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
   warnings.warn(
+/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+slurmstepd: error: *** STEP 2336241.0 ON nid0289 CANCELLED AT 2024-01-08T19:39:01 ***
+slurmstepd: error: *** JOB 2336241 ON nid0289 CANCELLED AT 2024-01-08T19:39:01 ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

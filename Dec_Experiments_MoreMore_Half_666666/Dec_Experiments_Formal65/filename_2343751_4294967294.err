@@ -1,0 +1,118 @@
+2024-01-12 03:29:05.683946: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-01-12 03:29:09.730555: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 38344 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:81:00.0, compute capability: 8.0
+2024-01-12 03:29:09.751366: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1532] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 38344 MB memory:  -> device: 1, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:c1:00.0, compute capability: 8.0
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+/N/soft/sles15/deeplearning/Python-3.10.5/lib/python3.10/site-packages/tensorflow/python/keras/engine/training.py:1963: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/concurrent/futures/process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_MoreMore_Half_666666/Dec_Experiments_Formal65/Size_and_Dim.py", line 138, in OneRound
+    scores.append(EE(max(intrinsic_list)+1, intrinsic_list, intrinsic_clustering, embd))
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/eval_embd.py", line 32, in eval_embd
+    evala_euclid_membership = euclid_membership(K, evala)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/WGE/WGE/eval_embd.py", line 14, in euclid_membership
+    euc_kmeans.fit(points)
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/sklearn/base.py", line 1151, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/sklearn/cluster/_kmeans.py", line 1471, in fit
+    X = self._validate_data(
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/sklearn/base.py", line 604, in _validate_data
+    out = check_array(X, input_name="X", **check_params)
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/sklearn/utils/validation.py", line 959, in check_array
+    _assert_all_finite(
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/sklearn/utils/validation.py", line 124, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/N/u/zfwei/BigRed200/.local/lib/python3.10/site-packages/sklearn/utils/validation.py", line 173, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+KMeans does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_MoreMore_Half_666666/Dec_Experiments_Formal65/Size_and_Dim_Run.py", line 24, in <module>
+    run_SD(args.method_id, args.itera, args.num_workers)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_MoreMore_Half_666666/Dec_Experiments_Formal65/Size_and_Dim_Run.py", line 7, in run_SD
+    RECORD_parallel = MoreRound(method_id, itera, num_workers)
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_MoreMore_Half_666666/Dec_Experiments_Formal65/Size_and_Dim.py", line 150, in MoreRound
+    results = [future.result() for future in futures]
+  File "/geode2/home/u110/zfwei/BigRed200/MSGI/Dec_Experiments_MoreMore_Half_666666/Dec_Experiments_Formal65/Size_and_Dim.py", line 150, in <listcomp>
+    results = [future.result() for future in futures]
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/N/soft/sles15/deeplearning/Python-3.10.5/Lib/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+ValueError: Input X contains NaN.
+KMeans does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+srun: error: nid0666: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=2343751.0
